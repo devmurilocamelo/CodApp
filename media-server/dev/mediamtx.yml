@@ -1,0 +1,43 @@
+# MediaMTX — configuração MÍNIMA para testar a Fase 1 (app câmera → servidor → VLC).
+# NÃO é a configuração de produção: a Fase 2 adiciona RTSPS/TLS, gravação, WebRTC e HLS.
+#
+# Senhas NÃO ficam aqui: são injetadas por variáveis de ambiente do .env
+# (MTX_AUTHINTERNALUSERS_<n>_USER / _PASS sobrescrevem os itens desta lista).
+
+logLevel: info
+
+# Só RTSP sobre TCP na rede local, sem TLS (o app avisa "sem criptografia").
+rtsp: yes
+rtspTransports: [tcp]
+rtspEncryption: "no"
+rtspAddress: :8554
+
+# Tudo o mais desligado nesta fase.
+rtmp: no
+hls: no
+webrtc: no
+srt: no
+api: no
+metrics: no
+pprof: no
+moq: no
+playback: no
+
+authMethod: internal
+authInternalUsers:
+  # [0] Usuário de PUBLICAÇÃO — o celular usa este.
+  - user: publisher-placeholder
+    pass: ""
+    ips: []
+    permissions:
+      - action: publish
+  # [1] Usuário de LEITURA — VLC/painel usam este. Não consegue publicar.
+  - user: viewer-placeholder
+    pass: ""
+    ips: []
+    permissions:
+      - action: read
+
+paths:
+  # Aceita qualquer path (um por câmera: /garagem, /sala ...).
+  all_others:

@@ -1,0 +1,15 @@
+# Servidor de TESTE da Fase 1. Uso:  cp .env.example .env && docker compose up
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:1.21.3
+    restart: unless-stopped
+    ports:
+      - "8554:8554"   # RTSP (TCP)
+    volumes:
+      - ./mediamtx.yml:/mediamtx.yml:ro
+    environment:
+      # O MediaMTX permite sobrescrever qualquer chave do YAML por variável de ambiente.
+      MTX_AUTHINTERNALUSERS_0_USER: ${MTX_PUBLISH_USER:?defina MTX_PUBLISH_USER no .env}
+      MTX_AUTHINTERNALUSERS_0_PASS: ${MTX_PUBLISH_PASS:?defina MTX_PUBLISH_PASS no .env}
+      MTX_AUTHINTERNALUSERS_1_USER: ${MTX_READ_USER:?defina MTX_READ_USER no .env}
+      MTX_AUTHINTERNALUSERS_1_PASS: ${MTX_READ_PASS:?defina MTX_READ_PASS no .env}

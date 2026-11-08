@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material 3 com cores dinâmicas desativadas: visual igual em todos os aparelhos. -->
+    <style name="Theme.OldCam" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/brand</item>
+    </style>
+
+    <style name="OldCam.SectionLabel" parent="">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceTitleSmall</item>
+    </style>
+</resources>

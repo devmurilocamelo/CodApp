@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OldCam</string>
+    <string name="settings_title">Configurações</string>
+
+    <!-- Tela principal -->
+    <string name="label_endpoint">Destino</string>
+    <string name="label_bitrate">Bitrate</string>
+    <string name="label_battery">Bateria</string>
+    <string name="label_temperature">Temperatura</string>
+    <string name="value_none">—</string>
+    <string name="value_kbps">%1$d kbps</string>
+    <string name="value_battery">%1$d%%</string>
+    <string name="value_battery_charging">%1$d%% (carregando)</string>
+    <string name="value_temperature">%1$.1f °C</string>
+    <string name="value_temperature_hot">%1$.1f °C — acima do limite (%2$d °C)!</string>
+    <string name="retry_in">%1$s · nova tentativa em %2$ds</string>
+    <string name="insecure_warning">Conexão SEM criptografia (rtsp://). Use apenas na rede local; para o VPS use rtsps://.</string>
+    <string name="action_start">Iniciar câmera</string>
+    <string name="action_stop">Parar</string>
+    <string name="action_settings">Configurações</string>
+    <string name="setup_title">Para rodar 24/7</string>
+    <string name="action_battery_optimization">Desativar otimização de bateria</string>
+    <string name="action_overlay">Permitir início automático no boot</string>
+    <string name="setup_all_done">Tudo certo: otimização de bateria desativada.</string>
+    <string name="need_settings">Preencha as configurações antes de iniciar.</string>
+    <string name="camera_permission_denied">Sem permissão de câmera o OldCam não funciona.</string>
+    <string name="overlay_explain">No Android 10+, para abrir a câmera sozinho após reiniciar, o OldCam precisa da permissão \"Sobrepor a outros apps\".</string>
+
+    <!-- Configurações -->
+    <string name="hint_server_url">URL do servidor</string>
+    <string name="helper_server_url">Ex.: rtsps://cam.seudominio.com:8322 (sem caminho)</string>
+    <string name="hint_camera_name">Nome da câmera</string>
+    <string name="helper_camera_path">Path no servidor: %1$s</string>
+    <string name="hint_user">Usuário de publicação</string>
+    <string name="hint_password">Senha de publicação</string>
+    <string name="label_resolution">Resolução</string>
+    <string name="label_fps">Quadros por segundo</string>
+    <string name="label_facing">Câmera</string>
+    <string name="facing_back">Traseira</string>
+    <string name="facing_front">Frontal</string>
+    <string name="label_orientation">Orientação</string>
+    <string name="orientation_landscape">Paisagem</string>
+    <string name="orientation_portrait">Retrato</string>
+    <string name="label_temperature_limit">Avisar acima de %1$d °C (bateria)</string>
+    <string name="label_autostart">Iniciar automaticamente ao ligar o celular</string>
+    <string name="action_save">Salvar</string>
+    <string name="saved">Configurações salvas.</string>
+    <string name="saved_restarting">Salvo. Reiniciando o stream com as novas configurações…</string>
+    <string name="error_required">Obrigatório</string>
+
+    <!-- Notificações -->
+    <string name="channel_stream">Transmissão em andamento</string>
+    <string name="channel_alerts">Alertas</string>
+    <string name="notification_streaming_title">OldCam transmitindo</string>
+    <string name="temperature_warning_title">Celular muito quente</string>
+    <string name="temperature_warning_text">Bateria a %1$.1f °C (limite %2$d °C). Tire da capinha, afaste do sol ou reduza resolução/FPS.</string>
+    <string name="tap_to_start_title">Toque para iniciar a OldCam</string>
+    <string name="start_blocked_background">O Android bloqueou o início em segundo plano. Toque aqui para iniciar a câmera.</string>
+    <string name="start_blocked_permission">Permissão de câmera ausente. Toque para abrir o app e conceder.</string>
+    <string name="start_blocked_boot">Celular reiniciado. Toque para religar a câmera (ou permita \"Sobrepor a outros apps\" para religar sozinho).</string>
+
+    <!-- Erros -->
+    <string name="error_invalid_settings">Configurações inválidas.</string>
+    <string name="error_incomplete_settings">Configure servidor, nome da câmera, usuário e senha.</string>
+    <string name="error_encoder">Este aparelho não suporta a resolução/FPS escolhidos. Tente 480p ou menos FPS.</string>
+    <string name="error_camera">Falha ao abrir câmera/encoder: %1$s</string>
+    <string name="error_auth">Servidor recusou usuário/senha de publicação.</string>
+</resources>

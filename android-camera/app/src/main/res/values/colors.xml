@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand">#2E7D5B</color>
+    <color name="status_ok">#2E7D32</color>
+    <color name="status_warn">#E65100</color>
+    <color name="status_error">#C62828</color>
+    <color name="status_idle">#757575</color>
+    <color name="launcher_bg">#1B3A2F</color>
+</resources>

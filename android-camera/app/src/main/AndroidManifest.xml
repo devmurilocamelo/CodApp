@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  AndroidManifest.xml: a "ficha de identidade" do app.
+  Declara permissões, telas (Activities), serviços e receivers.
+  O sistema lê este arquivo ANTES de rodar qualquer código.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- O app só faz sentido com câmera; impede instalação em aparelhos sem nenhuma. -->
+    <uses-feature android:name="android.hardware.camera.any" android:required="true" />
+
+    <!-- Captura e rede -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Foreground Service: rodar com a tela apagada. O tipo "camera" é obrigatório no Android 14+. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Manter CPU e Wi-Fi acordados mesmo com a tela desligada. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Início automático no boot. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Android 10+ só deixa abrir a câmera a partir do boot se o app puder abrir uma tela
+         em segundo plano; "Sobrepor a outros apps" concede isso (ver BootReceiver). -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- Pedir para o usuário tirar o app da otimização de bateria (Doze). App sideload, não Play Store. -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <!--
+      allowBackup=false + regras de extração: impede que configurações (incluindo a senha
+      cifrada) sejam copiadas para backup na nuvem ou via adb.
+    -->
+    <application
+        android:name=".OldCamApp"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.OldCam"
+        android:usesCleartextTraffic="false"
+        tools:targetApi="36">
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings_title"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <!-- exported=false: nenhum outro app pode iniciar/parar nosso stream. -->
+        <service
+            android:name=".stream.StreamService"
+            android:exported="false"
+            android:foregroundServiceType="camera" />
+
+        <!-- Precisa ser exported para receber o broadcast do sistema; validamos a action no código. -->
+        <receiver
+            android:name=".boot.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

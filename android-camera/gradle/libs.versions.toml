@@ -1,0 +1,35 @@
+# Catálogo de versões: o ÚNICO lugar onde versões de libs são definidas.
+# Atualize aqui e todos os módulos acompanham.
+[versions]
+agp = "9.5.1"                 # Android Gradle Plugin
+kotlin = "2.4.21"
+rootencoder = "2.8.1"         # pedroSG94/RootEncoder (encode H.264 + RTSP/RTSPS)
+camerax = "1.6.2"
+coreKtx = "1.19.1"
+appcompat = "1.8.0"
+material = "1.14.0"
+activity = "1.13.0"
+lifecycle = "2.11.0"
+constraintlayout = "2.2.2"
+coroutines = "1.11.0"
+junit = "4.13.2"
+
+[libraries]
+rootencoder-library = { module = "com.github.pedroSG94.RootEncoder:library", version.ref = "rootencoder" }
+rootencoder-extra-sources = { module = "com.github.pedroSG94.RootEncoder:extra-sources", version.ref = "rootencoder" }
+androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "camerax" }
+androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "camerax" }
+androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camerax" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-service = { module = "androidx.lifecycle:lifecycle-service", version.ref = "lifecycle" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+junit = { module = "junit:junit", version.ref = "junit" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
