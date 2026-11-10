@@ -16,3 +16,6 @@
 
 # Dados gerados pelo servidor de mídia
 media-server/**/recordings/
+
+# APK de teste gerado localmente (nao versionar binarios)
+*.apk

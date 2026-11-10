@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">OldCam</string>
+    <string name="app_name">Monitor</string>
     <string name="settings_title">Configurações</string>
 
     <!-- Tela principal -->
@@ -24,8 +24,8 @@
     <string name="action_overlay">Permitir início automático no boot</string>
     <string name="setup_all_done">Tudo certo: otimização de bateria desativada.</string>
     <string name="need_settings">Preencha as configurações antes de iniciar.</string>
-    <string name="camera_permission_denied">Sem permissão de câmera o OldCam não funciona.</string>
-    <string name="overlay_explain">No Android 10+, para abrir a câmera sozinho após reiniciar, o OldCam precisa da permissão \"Sobrepor a outros apps\".</string>
+    <string name="camera_permission_denied">Sem permissão de câmera o Monitor não funciona.</string>
+    <string name="overlay_explain">No Android 10+, para abrir a câmera sozinho após reiniciar, o Monitor precisa da permissão \"Sobrepor a outros apps\".</string>
 
     <!-- Configurações -->
     <string name="hint_server_url">URL do servidor</string>
@@ -52,10 +52,10 @@
     <!-- Notificações -->
     <string name="channel_stream">Transmissão em andamento</string>
     <string name="channel_alerts">Alertas</string>
-    <string name="notification_streaming_title">OldCam transmitindo</string>
+    <string name="notification_streaming_title">Monitor ativo</string>
     <string name="temperature_warning_title">Celular muito quente</string>
     <string name="temperature_warning_text">Bateria a %1$.1f °C (limite %2$d °C). Tire da capinha, afaste do sol ou reduza resolução/FPS.</string>
-    <string name="tap_to_start_title">Toque para iniciar a OldCam</string>
+    <string name="tap_to_start_title">Toque para iniciar o Monitor</string>
     <string name="start_blocked_background">O Android bloqueou o início em segundo plano. Toque aqui para iniciar a câmera.</string>
     <string name="start_blocked_permission">Permissão de câmera ausente. Toque para abrir o app e conceder.</string>
     <string name="start_blocked_boot">Celular reiniciado. Toque para religar a câmera (ou permita \"Sobrepor a outros apps\" para religar sozinho).</string>
